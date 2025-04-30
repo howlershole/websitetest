@@ -1,4 +1,3 @@
-/* Base layout */
 body {
   margin: 0;
   padding: 0;
@@ -7,34 +6,37 @@ body {
 }
 
 .background {
-  background: url('background.png') center center / cover no-repeat fixed;
-  width: 100%;
-  height: 100vh;
+  background: url('background.png') no-repeat center center fixed;
+  background-size: cover;
   position: absolute;
   inset: 0;
   z-index: -1;
+  width: 100vw;
+  height: 100vh;
 }
 
-/* Optional logo */
+/* Logo position — bottom left corner with margin */
 .logo-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 60vh;
+  position: absolute;
+  bottom: 40px;
+  left: 40px;
+  z-index: 5;
 }
 .logo {
-  width: 280px;
+  width: 160px;
+  height: auto;
 }
 
-/* Floating Scroll Icon */
+/* Floating scroll icon — mid right side */
 .scroll-icon {
   position: absolute;
-  bottom: 120px;
-  right: 120px;
+  top: 50%;
+  right: 60px;
   width: 100px;
-  cursor: pointer;
+  transform: translateY(-50%);
   animation: floatScroll 3.5s ease-in-out infinite;
   transition: filter 0.3s ease;
+  cursor: pointer;
   z-index: 10;
 }
 
@@ -44,14 +46,14 @@ body {
 
 @keyframes floatScroll {
   0%, 100% {
-    transform: translateY(0px);
+    transform: translateY(-50%) translateY(0px);
   }
   50% {
-    transform: translateY(-12px);
+    transform: translateY(-50%) translateY(-10px);
   }
 }
 
-/* Popup modal */
+/* Modal styles */
 .popup-overlay {
   display: none;
   position: fixed;
@@ -71,21 +73,5 @@ body {
 .popup-content img {
   width: 100%;
   height: auto;
-  border-radius: 12px;
-}
-
-.close-btn {
-  position: absolute;
-  top: -15px;
-  right: -15px;
-  width: 36px;
-  height: 36px;
-  background: white;
-  color: black;
-  border: none;
-  border-radius: 50%;
-  font-size: 22px;
-  font-weight: bold;
-  cursor: pointer;
-  box-shadow: 0 0 8px #000;
+  border-radius: 10px;
 }
