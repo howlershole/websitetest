@@ -2,62 +2,40 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>Psionic</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <!-- Center Scroll Button -->
-  <img src="scroll.png" alt="Scroll" class="scroll-icon" onclick="openPopup()" />
+  <div class="scroll-icon" onclick="togglePopup()">
+    <img src="scroll.png" alt="Scroll Icon" />
+  </div>
 
-  <!-- Bottom Center Logo -->
   <div class="logo-container">
     <img src="logo.png" alt="Logo" class="logo" />
   </div>
 
-  <!-- Popup -->
-  <div id="popup" class="popup-overlay" onclick="closePopup(event)">
+  <div class="popup-overlay" id="popup">
     <div class="popup-content">
-      <img src="popup.png" alt="Popup" class="popup-image" />
+      <img src="popup.png" alt="Popup Content" />
     </div>
   </div>
 
   <script>
-    function openPopup() {
-      document.getElementById('popup').style.display = 'flex';
-    }
-
-    function closePopup(event) {
-      const popupImage = document.querySelector('.popup-image');
-      const bounds = popupImage.getBoundingClientRect();
-      const x = event.clientX;
-      const y = event.clientY;
-      const closeZone = {
-        x: bounds.right - 80,
-        y: bounds.top + 20,
-        w: 60,
-        h: 60
-      };
-      const insideClose =
-        x >= closeZone.x &&
-        x <= closeZone.x + closeZone.w &&
-        y >= closeZone.y &&
-        y <= closeZone.y + closeZone.h;
-
-      if (event.target.id === 'popup' || insideClose) {
-        document.getElementById('popup').style.display = 'none';
-      }
-    }
-
-    // Disable right-click and dev tools
-    document.addEventListener('contextmenu', e => e.preventDefault());
-    document.addEventListener('keydown', e => {
-      if (
-        e.key === 'F12' ||
-        (e.ctrlKey && ['u', 's', 'Shift'].includes(e.key.toLowerCase()))
-      ) {
+    document.addEventListener('keydown', function (e) {
+      if ((e.ctrlKey || e.metaKey) && ['+', '-', '=', '0'].includes(e.key)) {
         e.preventDefault();
       }
+    });
+
+    function togglePopup() {
+      const popup = document.getElementById('popup');
+      popup.style.display = popup.style.display === 'flex' ? 'none' : 'flex';
+    }
+
+    // Optional: clicking outside popup to close
+    document.getElementById('popup').addEventListener('click', function (e) {
+      if (e.target === this) this.style.display = 'none';
     });
   </script>
 </body>
