@@ -11,13 +11,30 @@ body {
   background-attachment: fixed;
 }
 
-@media (max-aspect-ratio: 3/4) {
+/* Mobile background swap */
+@media (max-width: 768px) {
   body {
+    background-image: url('background-mobile.png');
     background-size: cover;
     background-position: top center;
   }
 }
 
+/* Disable right-click, drag, touch-hold, selection */
+img,
+body {
+  user-select: none;
+  -webkit-user-drag: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+img {
+  pointer-events: none;
+}
+
+/* Logo bottom left */
 .logo-container {
   position: absolute;
   bottom: 20px;
@@ -29,6 +46,7 @@ body {
   height: auto;
 }
 
+/* Scroll icon floating mid-right */
 .scroll-icon {
   position: absolute;
   top: 50%;
@@ -39,12 +57,11 @@ body {
   transition: filter 0.3s ease;
   cursor: pointer;
   z-index: 10;
+  pointer-events: auto;
 }
-
 .scroll-icon:hover {
   filter: drop-shadow(0 0 12px rgba(255, 255, 0, 0.8));
 }
-
 @media (max-width: 768px) {
   .scroll-icon {
     top: 45%;
@@ -52,6 +69,7 @@ body {
   }
 }
 
+/* Float animation */
 @keyframes floatScroll {
   0%, 100% {
     transform: translateY(-50%) translateY(0px);
@@ -61,6 +79,7 @@ body {
   }
 }
 
+/* Popup styles */
 .popup-overlay {
   display: none;
   position: fixed;
@@ -70,13 +89,11 @@ body {
   align-items: center;
   z-index: 20;
 }
-
 .popup-content {
   position: relative;
   max-width: 90vw;
   max-height: 90vh;
 }
-
 .popup-content img {
   width: 100%;
   height: auto;
