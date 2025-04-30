@@ -3,20 +3,21 @@ body {
   padding: 0;
   overflow: hidden;
   font-family: 'Segoe UI', sans-serif;
+
+  background-image: url('background.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+  background-attachment: fixed;
 }
 
-/* Background image that scales perfectly */
-.background {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  object-fit: cover;
-  z-index: -1;
+@media (max-aspect-ratio: 3/4) {
+  body {
+    background-size: cover;
+    background-position: top center;
+  }
 }
 
-/* Logo in the bottom-left corner */
 .logo-container {
   position: absolute;
   bottom: 20px;
@@ -28,11 +29,10 @@ body {
   height: auto;
 }
 
-/* Scroll icon floating in mid-right */
 .scroll-icon {
   position: absolute;
   top: 50%;
-  right: 4vw;
+  right: clamp(20px, 4vw, 60px);
   width: clamp(60px, 8vw, 100px);
   transform: translateY(-50%);
   animation: floatScroll 3.5s ease-in-out infinite;
@@ -40,8 +40,16 @@ body {
   cursor: pointer;
   z-index: 10;
 }
+
 .scroll-icon:hover {
   filter: drop-shadow(0 0 12px rgba(255, 255, 0, 0.8));
+}
+
+@media (max-width: 768px) {
+  .scroll-icon {
+    top: 45%;
+    width: 80px;
+  }
 }
 
 @keyframes floatScroll {
@@ -53,7 +61,6 @@ body {
   }
 }
 
-/* Popup modal styling */
 .popup-overlay {
   display: none;
   position: fixed;
@@ -63,11 +70,13 @@ body {
   align-items: center;
   z-index: 20;
 }
+
 .popup-content {
   position: relative;
   max-width: 90vw;
   max-height: 90vh;
 }
+
 .popup-content img {
   width: 100%;
   height: auto;
