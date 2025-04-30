@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PSYCHO</title>
+  <title>Psionic</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <!-- Logo -->
+  <!-- Center Scroll Button -->
+  <img src="scroll.png" alt="Scroll" class="scroll-icon" onclick="openPopup()" />
+
+  <!-- Bottom Center Logo -->
   <div class="logo-container">
     <img src="logo.png" alt="Logo" class="logo" />
   </div>
-
-  <!-- Scroll icon -->
-  <img src="scroll.png" alt="Scroll" class="scroll-icon" onclick="openPopup()" />
 
   <!-- Popup -->
   <div id="popup" class="popup-overlay" onclick="closePopup(event)">
@@ -22,7 +22,6 @@
     </div>
   </div>
 
-  <!-- Scripts -->
   <script>
     function openPopup() {
       document.getElementById('popup').style.display = 'flex';
