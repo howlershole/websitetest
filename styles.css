@@ -1,58 +1,40 @@
+/* Disable image selection and right-click dragging */
+body,
+img {
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  pointer-events: none;
+}
+
 body {
   margin: 0;
   padding: 0;
   overflow: hidden;
   font-family: 'Segoe UI', sans-serif;
-
   background-image: url('background.png');
-  background-repeat: no-repeat;
-  background-position: center center;
   background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   background-attachment: fixed;
-  background-color: black;
 }
 
+/* Mobile background override */
 @media (max-width: 768px) {
   body {
     background-image: url('background-mobile.png');
-    background-size: cover;
-    background-position: center top;
     background-attachment: scroll;
   }
 }
 
-img,
-body {
-  user-select: none;
-  -webkit-user-drag: none;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-}
-
-img {
-  pointer-events: none;
-}
-
-.logo-container {
-  position: absolute;
-  bottom: 30px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 5;
-}
-
-.logo {
-  width: 240px;
-  height: auto;
-}
-
+/* SCROLL ICON */
 .scroll-icon {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: clamp(120px, 16vw, 220px); /* Responsive scaling */
+  width: clamp(60px, 8vw, 100px);
   transform: translate(-50%, -50%);
   animation: floatScroll 3.5s ease-in-out infinite;
   transition: filter 0.3s ease;
@@ -60,12 +42,14 @@ img {
   z-index: 10;
   pointer-events: auto;
 }
-
 .scroll-icon img {
   width: 100%;
   height: auto;
+  pointer-events: none;
 }
-
+.scroll-icon:hover {
+  filter: drop-shadow(0 0 10px rgba(255, 255, 0, 0.8));
+}
 @keyframes floatScroll {
   0%, 100% {
     transform: translate(-50%, -50%) translateY(0px);
@@ -75,24 +59,36 @@ img {
   }
 }
 
+/* LOGO */
+.logo-container {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+}
+.logo {
+  width: 180px;
+  height: auto;
+  pointer-events: none;
+}
+
+/* POPUP MODULE */
 .popup-overlay {
   display: none;
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.7);
   justify-content: center;
   align-items: center;
   z-index: 20;
 }
-
 .popup-content {
-  position: relative;
   max-width: 90vw;
   max-height: 90vh;
 }
-
 .popup-content img {
   width: 100%;
   height: auto;
-  border-radius: 10px;
+  border-radius: 12px;
 }
