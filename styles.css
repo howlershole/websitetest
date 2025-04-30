@@ -5,23 +5,15 @@ html, body {
   font-family: 'Segoe UI', sans-serif;
   background-color: black;
   touch-action: manipulation;
+  height: 100%;
+  width: 100%;
 }
 
 body {
   background-image: url('background.png');
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-}
-
-@media (max-width: 768px) {
-  body {
-    background-image: url('background-mobile.png');
-    background-size: cover;
-    background-position: center;
-    background-attachment: scroll;
-  }
+  background-position: center center;
 }
 
 img, body {
@@ -40,7 +32,7 @@ img {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: clamp(120px, 15vw, 200px);
+  width: clamp(120px, 18vw, 240px);
   transform: translate(-50%, -50%);
   animation: floatScroll 3.5s ease-in-out infinite;
   cursor: pointer;
@@ -66,7 +58,7 @@ img {
 }
 
 .logo {
-  width: clamp(160px, 22vw, 250px);
+  width: clamp(200px, 28vw, 300px);
   height: auto;
 }
 
@@ -102,7 +94,11 @@ img {
 
 @media (max-width: 768px) {
   .popup-content {
-    max-width: 95vw;
-    max-height: 95vh;
+    max-width: 98vw;
+    max-height: 94vh;
+  }
+
+  .scroll-icon {
+    width: clamp(140px, 35vw, 200px);
   }
 }
