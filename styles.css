@@ -3,8 +3,8 @@ html, body {
   padding: 0;
   overflow: hidden;
   font-family: 'Segoe UI', sans-serif;
-  touch-action: manipulation;
   background-color: black;
+  touch-action: manipulation;
 }
 
 body {
@@ -20,38 +20,41 @@ body {
     background-image: url('background-mobile.png');
     background-size: cover;
     background-position: center;
+    background-attachment: scroll;
   }
 }
 
-body, img {
+img, body {
   -webkit-user-drag: none;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
 }
+
 img {
   pointer-events: none;
 }
 
-/* Scroll Icon */
 .scroll-icon {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: clamp(140px, 18vw, 180px);
+  width: clamp(120px, 15vw, 200px);
   transform: translate(-50%, -50%);
   animation: floatScroll 3.5s ease-in-out infinite;
-  transition: filter 0.3s ease;
   cursor: pointer;
   z-index: 10;
 }
-.scroll-icon:hover {
-  filter: drop-shadow(0 0 10px rgba(255, 255, 0, 0.8));
-}
+
 .scroll-icon img {
   width: 100%;
   height: auto;
+  pointer-events: auto;
+}
+
+.scroll-icon:hover {
+  filter: drop-shadow(0 0 10px rgba(255, 255, 0, 0.8));
 }
 
 .logo-container {
@@ -61,8 +64,9 @@ img {
   transform: translateX(-50%);
   z-index: 5;
 }
+
 .logo {
-  width: clamp(150px, 20vw, 220px);
+  width: clamp(160px, 22vw, 250px);
   height: auto;
 }
 
@@ -86,9 +90,10 @@ img {
 }
 
 .popup-content {
-  max-width: 80vw;
-  max-height: 80vh;
+  max-width: 90vw;
+  max-height: 90vh;
 }
+
 .popup-content img {
   width: 100%;
   height: auto;
@@ -97,7 +102,7 @@ img {
 
 @media (max-width: 768px) {
   .popup-content {
-    max-width: 92vw;
-    max-height: 85vh;
+    max-width: 95vw;
+    max-height: 95vh;
   }
 }
