@@ -15,24 +15,24 @@ body {
   height: 100vh;
 }
 
-/* Logo position — bottom left corner with margin */
+/* Logo bottom-left, smaller + responsive */
 .logo-container {
   position: absolute;
-  bottom: 40px;
-  left: 40px;
+  bottom: 20px;
+  left: 20px;
   z-index: 5;
 }
 .logo {
-  width: 160px;
+  width: 120px;
   height: auto;
 }
 
-/* Floating scroll icon — mid right side */
+/* Scroll icon on mid-right, smaller */
 .scroll-icon {
   position: absolute;
   top: 50%;
-  right: 60px;
-  width: 100px;
+  right: 30px;
+  width: 70px;
   transform: translateY(-50%);
   animation: floatScroll 3.5s ease-in-out infinite;
   transition: filter 0.3s ease;
@@ -41,7 +41,7 @@ body {
 }
 
 .scroll-icon:hover {
-  filter: drop-shadow(0 0 12px rgba(255, 255, 0, 0.8));
+  filter: drop-shadow(0 0 10px rgba(255, 255, 0, 0.75));
 }
 
 @keyframes floatScroll {
@@ -49,11 +49,11 @@ body {
     transform: translateY(-50%) translateY(0px);
   }
   50% {
-    transform: translateY(-50%) translateY(-10px);
+    transform: translateY(-50%) translateY(-8px);
   }
 }
 
-/* Modal styles */
+/* Popup modal */
 .popup-overlay {
   display: none;
   position: fixed;
@@ -74,4 +74,16 @@ body {
   width: 100%;
   height: auto;
   border-radius: 10px;
+}
+
+/* Mobile tweaks */
+@media (max-width: 768px) {
+  .logo {
+    width: 80px;
+  }
+
+  .scroll-icon {
+    width: 50px;
+    right: 20px;
+  }
 }
