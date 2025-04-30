@@ -3,27 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Psionic</title>
+  <title>PSYCHO</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <!-- Background is now set via CSS -->
-
-  <!-- Logo in bottom-left corner -->
+  <!-- Logo (optional) -->
   <div class="logo-container">
     <img src="logo.png" alt="Logo" class="logo" />
   </div>
 
-  <!-- Scroll icon trigger -->
+  <!-- Floating scroll -->
   <img src="scroll.png" alt="Scroll" class="scroll-icon" onclick="openPopup()" />
 
-  <!-- Modal popup -->
+  <!-- Popup -->
   <div id="popup" class="popup-overlay" onclick="closePopup(event)">
     <div class="popup-content">
       <img src="popup.png" alt="Popup" class="popup-image" />
     </div>
   </div>
 
+  <!-- Script to open/close popup -->
   <script>
     function openPopup() {
       document.getElementById('popup').style.display = 'flex';
@@ -50,6 +49,17 @@
         document.getElementById('popup').style.display = 'none';
       }
     }
+
+    // Security: Block right-click + key combos
+    document.addEventListener('contextmenu', e => e.preventDefault());
+    document.addEventListener('keydown', e => {
+      if (
+        e.key === 'F12' ||
+        (e.ctrlKey && ['u', 's', 'Shift'].includes(e.key.toLowerCase()))
+      ) {
+        e.preventDefault();
+      }
+    });
   </script>
 </body>
 </html>
