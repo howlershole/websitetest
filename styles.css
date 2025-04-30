@@ -6,8 +6,8 @@ body {
 
   background-image: url('background.png');
   background-repeat: no-repeat;
-  background-position: top center;
-  background-size: contain;
+  background-position: center center;
+  background-size: cover;
   background-attachment: fixed;
   background-color: black;
 }
@@ -30,11 +30,11 @@ body {
   -moz-user-select: none;
   -ms-user-select: none;
 }
+
 img {
   pointer-events: none;
 }
 
-/* Doubled-size logo centered at bottom */
 .logo-container {
   position: absolute;
   bottom: 30px;
@@ -42,17 +42,17 @@ img {
   transform: translateX(-50%);
   z-index: 5;
 }
+
 .logo {
-  width: 240px; /* doubled */
+  width: 240px;
   height: auto;
 }
 
-/* Doubled scroll size and centered screen */
 .scroll-icon {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 200px; /* doubled */
+  width: 200px;
   transform: translate(-50%, -50%);
   animation: floatScroll 3.5s ease-in-out infinite;
   transition: filter 0.3s ease;
@@ -60,11 +60,11 @@ img {
   z-index: 10;
   pointer-events: auto;
 }
+
 .scroll-icon:hover {
   filter: drop-shadow(0 0 12px rgba(255, 255, 0, 0.8));
 }
 
-/* Float effect */
 @keyframes floatScroll {
   0%, 100% {
     transform: translate(-50%, -50%) translateY(0px);
@@ -74,7 +74,6 @@ img {
   }
 }
 
-/* Modal popup */
 .popup-overlay {
   display: none;
   position: fixed;
@@ -84,11 +83,13 @@ img {
   align-items: center;
   z-index: 20;
 }
+
 .popup-content {
   position: relative;
   max-width: 90vw;
   max-height: 90vh;
 }
+
 .popup-content img {
   width: 100%;
   height: auto;
