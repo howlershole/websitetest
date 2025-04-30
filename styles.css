@@ -1,28 +1,30 @@
-/* Base Layout */
-body {
+/* Prevent zoom & interaction */
+html, body {
   margin: 0;
   padding: 0;
   overflow: hidden;
   font-family: 'Segoe UI', sans-serif;
-  background-image: url('background.png');
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  background-attachment: fixed;
+  touch-action: manipulation;
   background-color: black;
 }
 
-/* Mobile Fix */
+body {
+  background-image: url('background.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100%;
+  background-attachment: fixed;
+}
+
 @media (max-width: 768px) {
   body {
     background-image: url('background-mobile.png');
-    background-size: 100% 100%;
+    background-size: cover;
     background-position: center;
-    background-attachment: scroll;
   }
 }
 
-/* Security */
+/* Disable right-click and drag */
 body, img {
   -webkit-user-drag: none;
   -webkit-user-select: none;
@@ -39,24 +41,22 @@ img {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: clamp(140px, 20vw, 220px);
+  width: clamp(130px, 18vw, 220px);
   transform: translate(-50%, -50%);
   animation: floatScroll 3.5s ease-in-out infinite;
   transition: filter 0.3s ease;
   cursor: pointer;
   z-index: 10;
-  pointer-events: auto;
-}
-.scroll-icon img {
-  width: 100%;
-  height: auto;
-  pointer-events: none;
 }
 .scroll-icon:hover {
   filter: drop-shadow(0 0 10px rgba(255, 255, 0, 0.8));
 }
+.scroll-icon img {
+  width: 100%;
+  height: auto;
+}
 
-/* Logo */
+/* Logo Bottom Center */
 .logo-container {
   position: absolute;
   bottom: 20px;
@@ -65,37 +65,44 @@ img {
   z-index: 5;
 }
 .logo {
-  width: 180px;
+  width: clamp(150px, 18vw, 200px);
   height: auto;
-  pointer-events: none;
 }
 
-/* Popup */
-.popup-overlay {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.7);
-  justify-content: center;
-  align-items: center;
-  z-index: 20;
-}
-.popup-content {
-  max-width: 90vw;
-  max-height: 90vh;
-}
-.popup-content img {
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
-}
-
-/* Float Animation */
+/* Floating animation */
 @keyframes floatScroll {
   0%, 100% {
     transform: translate(-50%, -50%) translateY(0px);
   }
   50% {
     transform: translate(-50%, -50%) translateY(-10px);
+  }
+}
+
+/* Popup Styling */
+.popup-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  justify-content: center;
+  align-items: center;
+  z-index: 20;
+}
+
+.popup-content {
+  max-width: 90vw;
+  max-height: 90vh;
+}
+
+.popup-content img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+@media (max-width: 768px) {
+  .popup-content {
+    max-width: 95vw;
   }
 }
