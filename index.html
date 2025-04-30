@@ -2,54 +2,51 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>Psionic</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
-<body>
+<body oncontextmenu="return false">
 
-  <!-- Scroll (centered, opens popup) -->
+  <!-- Scroll Icon -->
   <div class="scroll-icon" id="scrollTrigger">
     <img src="scroll.png" alt="Scroll Icon" />
   </div>
 
-  <!-- Logo (bottom center) -->
+  <!-- Bottom Logo -->
   <div class="logo-container">
-    <img class="logo" src="logo.png" alt="Logo" />
+    <img src="logo.png" alt="Logo" class="logo" />
   </div>
 
-  <!-- Popup (starts hidden) -->
+  <!-- Popup -->
   <div class="popup-overlay" id="popupOverlay">
-    <div class="popup-content" id="popupContent">
-      <img src="popup.png" alt="Popup" />
+    <div class="popup-content">
+      <img src="popup.png" alt="Popup Content" />
     </div>
   </div>
 
-  <!-- JavaScript for popup open/close -->
   <script>
     const scrollTrigger = document.getElementById('scrollTrigger');
     const popupOverlay = document.getElementById('popupOverlay');
-    const popupContent = document.getElementById('popupContent');
 
-    // Open popup
+    // Open the popup
     scrollTrigger.addEventListener('click', () => {
       popupOverlay.style.display = 'flex';
     });
 
-    // Close popup when clicking outside the content
+    // Close the popup when clicking outside the image
     popupOverlay.addEventListener('click', (e) => {
-      if (!popupContent.contains(e.target)) {
+      if (e.target === popupOverlay) {
         popupOverlay.style.display = 'none';
       }
     });
 
-    // Prevent zoom on key combo
-    document.addEventListener('keydown', function (e) {
+    // Block zoom via keys
+    document.addEventListener('keydown', (e) => {
       if ((e.ctrlKey || e.metaKey) && ['+', '-', '=', '0'].includes(e.key)) {
         e.preventDefault();
       }
     });
   </script>
-
 </body>
 </html>
