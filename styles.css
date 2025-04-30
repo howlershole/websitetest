@@ -6,21 +6,21 @@ body {
 
   background-image: url('background.png');
   background-repeat: no-repeat;
-  background-position: center center;
+  background-position: top center;
   background-size: contain;
   background-attachment: fixed;
+  background-color: black;
 }
 
-/* Mobile background swap */
 @media (max-width: 768px) {
   body {
     background-image: url('background-mobile.png');
     background-size: cover;
-    background-position: top center;
+    background-position: center top;
+    background-attachment: scroll;
   }
 }
 
-/* Disable right-click, drag, touch-hold, selection */
 img,
 body {
   user-select: none;
@@ -34,7 +34,6 @@ img {
   pointer-events: none;
 }
 
-/* Logo bottom left */
 .logo-container {
   position: absolute;
   bottom: 20px;
@@ -46,12 +45,11 @@ img {
   height: auto;
 }
 
-/* Scroll icon floating mid-right */
 .scroll-icon {
   position: absolute;
   top: 50%;
   right: clamp(20px, 4vw, 60px);
-  width: clamp(60px, 8vw, 100px);
+  width: clamp(70px, 9vw, 110px);
   transform: translateY(-50%);
   animation: floatScroll 3.5s ease-in-out infinite;
   transition: filter 0.3s ease;
@@ -64,22 +62,21 @@ img {
 }
 @media (max-width: 768px) {
   .scroll-icon {
-    top: 45%;
-    width: 80px;
+    top: 50%;
+    right: 5%;
+    width: 90px;
   }
 }
 
-/* Float animation */
 @keyframes floatScroll {
   0%, 100% {
     transform: translateY(-50%) translateY(0px);
   }
   50% {
-    transform: translateY(-50%) translateY(-8px);
+    transform: translateY(-50%) translateY(-10px);
   }
 }
 
-/* Popup styles */
 .popup-overlay {
   display: none;
   position: fixed;
