@@ -1,3 +1,4 @@
+/* Base Layout */
 body {
   margin: 0;
   padding: 0;
@@ -11,18 +12,18 @@ body {
   background-color: black;
 }
 
+/* Mobile Fix */
 @media (max-width: 768px) {
   body {
     background-image: url('background-mobile.png');
-    background-size: cover;
-    background-position: top center;
+    background-size: 100% 100%;
+    background-position: center;
     background-attachment: scroll;
   }
 }
 
-/* Disable image dragging, selection, and saving */
-body,
-img {
+/* Security */
+body, img {
   -webkit-user-drag: none;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -38,7 +39,7 @@ img {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: clamp(120px, 18vw, 200px);
+  width: clamp(140px, 20vw, 220px);
   transform: translate(-50%, -50%);
   animation: floatScroll 3.5s ease-in-out infinite;
   transition: filter 0.3s ease;
@@ -55,16 +56,7 @@ img {
   filter: drop-shadow(0 0 10px rgba(255, 255, 0, 0.8));
 }
 
-@keyframes floatScroll {
-  0%, 100% {
-    transform: translate(-50%, -50%) translateY(0px);
-  }
-  50% {
-    transform: translate(-50%, -50%) translateY(-10px);
-  }
-}
-
-/* Logo at bottom center */
+/* Logo */
 .logo-container {
   position: absolute;
   bottom: 20px;
@@ -78,7 +70,7 @@ img {
   pointer-events: none;
 }
 
-/* Popup Styles */
+/* Popup */
 .popup-overlay {
   display: none;
   position: fixed;
@@ -95,5 +87,15 @@ img {
 .popup-content img {
   width: 100%;
   height: auto;
-  border-radius: 12px;
+  border-radius: 10px;
+}
+
+/* Float Animation */
+@keyframes floatScroll {
+  0%, 100% {
+    transform: translate(-50%, -50%) translateY(0px);
+  }
+  50% {
+    transform: translate(-50%, -50%) translateY(-10px);
+  }
 }
