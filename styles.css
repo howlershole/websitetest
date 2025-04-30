@@ -4,9 +4,9 @@ body {
   overflow: hidden;
   font-family: 'Segoe UI', sans-serif;
   background-image: url('background.png');
-  background-size: cover;
-  background-position: center;
   background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
   background-attachment: fixed;
   background-color: black;
 }
@@ -14,11 +14,13 @@ body {
 @media (max-width: 768px) {
   body {
     background-image: url('background-mobile.png');
+    background-size: cover;
+    background-position: top center;
     background-attachment: scroll;
   }
 }
 
-/* Prevent saving / selection */
+/* Disable image dragging, selection, and saving */
 body,
 img {
   -webkit-user-drag: none;
@@ -31,12 +33,12 @@ img {
   pointer-events: none;
 }
 
-/* Centered scroll, larger size */
+/* Scroll Icon */
 .scroll-icon {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: clamp(120px, 18vw, 180px); /* Bigger size */
+  width: clamp(120px, 18vw, 200px);
   transform: translate(-50%, -50%);
   animation: floatScroll 3.5s ease-in-out infinite;
   transition: filter 0.3s ease;
@@ -50,7 +52,7 @@ img {
   pointer-events: none;
 }
 .scroll-icon:hover {
-  filter: drop-shadow(0 0 12px rgba(255, 255, 0, 0.8));
+  filter: drop-shadow(0 0 10px rgba(255, 255, 0, 0.8));
 }
 
 @keyframes floatScroll {
@@ -62,7 +64,7 @@ img {
   }
 }
 
-/* Logo bottom center */
+/* Logo at bottom center */
 .logo-container {
   position: absolute;
   bottom: 20px;
@@ -76,7 +78,7 @@ img {
   pointer-events: none;
 }
 
-/* Popup overlay */
+/* Popup Styles */
 .popup-overlay {
   display: none;
   position: fixed;
@@ -86,7 +88,6 @@ img {
   align-items: center;
   z-index: 20;
 }
-
 .popup-content {
   max-width: 90vw;
   max-height: 90vh;
@@ -94,5 +95,5 @@ img {
 .popup-content img {
   width: 100%;
   height: auto;
-  border-radius: 10px;
+  border-radius: 12px;
 }
