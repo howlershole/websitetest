@@ -7,12 +7,12 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <!-- Logo (optional) -->
+  <!-- Logo -->
   <div class="logo-container">
     <img src="logo.png" alt="Logo" class="logo" />
   </div>
 
-  <!-- Floating scroll -->
+  <!-- Scroll icon -->
   <img src="scroll.png" alt="Scroll" class="scroll-icon" onclick="openPopup()" />
 
   <!-- Popup -->
@@ -22,7 +22,7 @@
     </div>
   </div>
 
-  <!-- Script to open/close popup -->
+  <!-- Scripts -->
   <script>
     function openPopup() {
       document.getElementById('popup').style.display = 'flex';
@@ -50,7 +50,7 @@
       }
     }
 
-    // Security: Block right-click + key combos
+    // Disable right-click and dev tools
     document.addEventListener('contextmenu', e => e.preventDefault());
     document.addEventListener('keydown', e => {
       if (
