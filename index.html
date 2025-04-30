@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Psionic</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="background"></div>
+
+  <!-- Optional logo (remove if it's part of background image) -->
+  <div class="logo-container">
+    <img src="logo.png" alt="Logo" class="logo" />
+  </div>
+
+  <!-- Floating scroll trigger -->
+  <img src="scroll.png" alt="Scroll" class="scroll-icon" onclick="openPopup()" />
+
+  <!-- Popup modal -->
+  <div id="popup" class="popup-overlay" onclick="closePopup(event)">
+    <div class="popup-content">
+      <img src="popup.png" alt="Popup" />
+      <button class="close-btn" onclick="closePopup(event)">×</button>
+    </div>
+  </div>
+
+  <!-- JS: Open/Close Modal -->
+  <script>
+    function openPopup() {
+      document.getElementById('popup').style.display = 'flex';
+    }
+
+    function closePopup(event) {
+      if (event.target.id === 'popup' || event.target.classList.contains('close-btn')) {
+        document.getElementById('popup').style.display = 'none';
+      }
+    }
+  </script>
+</body>
+</html>
