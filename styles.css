@@ -98,8 +98,14 @@ img {
 @media (max-width: 768px) {
   .popup-content {
     max-width: 98vw;
-    max-height: 94vh;
+    max-height: 96vh;
   }
+
+  .scroll-icon {
+    width: clamp(140px, 35vw, 200px);
+  }
+}
+
 
   .scroll-icon {
     width: clamp(140px, 35vw, 200px);
