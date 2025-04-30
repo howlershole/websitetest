@@ -2,31 +2,46 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>Psionic Site</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <title>PSI | Site</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
-<body oncontextmenu="return false">
+<body>
 
-  <div class="scroll-icon" onclick="togglePopup()">
+  <!-- Scroll Icon (click to open popup) -->
+  <div class="scroll-icon" id="scrollTrigger">
     <img src="scroll.png" alt="Scroll Icon" />
   </div>
 
+  <!-- Logo at bottom center -->
   <div class="logo-container">
-    <img src="logo.png" alt="Logo" class="logo" />
+    <img class="logo" src="logo.png" alt="Psycho Logo" />
   </div>
 
-  <div class="popup-overlay" id="popup">
-    <div class="popup-content">
-      <img src="popup.png" alt="Popup Info" />
+  <!-- Popup Module -->
+  <div class="popup-overlay" id="popupOverlay">
+    <div class="popup-content" id="popupContent">
+      <img src="popup.png" alt="Popup Module" />
     </div>
   </div>
 
   <script>
-    function togglePopup() {
-      const popup = document.getElementById('popup');
-      popup.style.display = popup.style.display === 'flex' ? 'none' : 'flex';
-    }
+    const trigger = document.getElementById('scrollTrigger');
+    const overlay = document.getElementById('popupOverlay');
+    const popup = document.getElementById('popupContent');
+
+    // Open popup
+    trigger.addEventListener('click', () => {
+      overlay.style.display = 'flex';
+    });
+
+    // Close popup if click outside content
+    overlay.addEventListener('click', (e) => {
+      if (!popup.contains(e.target)) {
+        overlay.style.display = 'none';
+      }
+    });
   </script>
+
 </body>
 </html>
