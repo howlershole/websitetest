@@ -9,7 +9,7 @@
 <body>
   <div class="background"></div>
 
-  <!-- Optional logo (remove if it's part of background image) -->
+  <!-- Optional logo -->
   <div class="logo-container">
     <img src="logo.png" alt="Logo" class="logo" />
   </div>
@@ -20,19 +20,34 @@
   <!-- Popup modal -->
   <div id="popup" class="popup-overlay" onclick="closePopup(event)">
     <div class="popup-content">
-      <img src="popup.png" alt="Popup" />
-      <button class="close-btn" onclick="closePopup(event)">×</button>
+      <img src="popup.png" alt="Popup" class="popup-image" />
     </div>
   </div>
 
-  <!-- JS: Open/Close Modal -->
   <script>
     function openPopup() {
       document.getElementById('popup').style.display = 'flex';
     }
 
     function closePopup(event) {
-      if (event.target.id === 'popup' || event.target.classList.contains('close-btn')) {
+      // close if clicked outside or inside the close button (visually built-in)
+      const popupImage = document.querySelector('.popup-image');
+      const bounds = popupImage.getBoundingClientRect();
+      const x = event.clientX;
+      const y = event.clientY;
+      const closeZone = {
+        x: bounds.right - 80,
+        y: bounds.top + 20,
+        w: 60,
+        h: 60
+      };
+      const insideClose =
+        x >= closeZone.x &&
+        x <= closeZone.x + closeZone.w &&
+        y >= closeZone.y &&
+        y <= closeZone.y + closeZone.h;
+
+      if (event.target.id === 'popup' || insideClose) {
         document.getElementById('popup').style.display = 'none';
       }
     }
